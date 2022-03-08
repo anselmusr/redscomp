@@ -63,13 +63,13 @@
                 @endif
 
                 <div class="col-md-12">
-                    <input type="file" name="image" class="form-control">    
+                    <hr>
+                    <input type="file" name="image" class="form-control-file">    
                     <hr>
                 </div>
 
                 <div class="col-md-12">
                     <button type="submit" class="btn btn-primary">Submit</button>
-                    <hr>
                 </div>
 
             </div>
