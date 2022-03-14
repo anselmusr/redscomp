@@ -17,4 +17,7 @@
     <!-- CSS Files -->
     <link id="pagestyle" href="../frontend/css/custom.css" rel="stylesheet" />
     <link id="pagestyle" href="../frontend/css/bootstrap.css" rel="stylesheet" />
+    
+    <link id="pagestyle" href="../frontend/css/owl.carousel.min.css" rel="stylesheet" />
+    <link id="pagestyle" href="../frontend/css/owl.theme.default.min.css" rel="stylesheet" />
   </head>
