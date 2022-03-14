@@ -24,6 +24,7 @@ use App\Models\Product;
 // });
 
 Route::get('/', [FrontendController::class, 'index']);
+Route::get('category', [FrontendController::class, 'category']);
 
 
 Auth::routes();
