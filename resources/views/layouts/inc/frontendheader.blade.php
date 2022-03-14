@@ -20,4 +20,9 @@
     
     <link id="pagestyle" href="../frontend/css/owl.carousel.min.css" rel="stylesheet" />
     <link id="pagestyle" href="../frontend/css/owl.theme.default.min.css" rel="stylesheet" />
+    <style>
+      a{
+        text-decoration: none !important;
+      }
+    </style>
   </head>
