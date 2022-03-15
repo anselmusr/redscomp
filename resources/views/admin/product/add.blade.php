@@ -43,7 +43,7 @@
 
                 <div class="col-md-6 mb-3">
                     <label for="">Original Price</label>
-                    <input type="number" class="form-control" name="original_price">
+                    <input type="number" class="form-control" name="original_price" >
                     <hr>
                 </div>
 

@@ -25,6 +25,9 @@
   <script src="../admin/js/plugins/perfect-scrollbar.min.js"></script>
   <script src="../admin/js/plugins/smooth-scrollbar.min.js"></script>
   <script src="../admin/js/plugins/chartjs.min.js"></script>
+
+  <script type="text/javascript" src="../admin/js/jquery.js"></script>
+	<script type="text/javascript"  src="../admin/js/rupiah.js"></script>
   
   
   <script>
