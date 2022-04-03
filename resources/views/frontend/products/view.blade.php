@@ -41,9 +41,9 @@
                         <div class="col-md-2">
                             <label for="Quantity">Quantity</label>
                             <div class="input-group text-center mb-3">
-                                <span class="input-group-text">-</span>
-                                <input type="text" name="quantity" value="1" class="form-control" />
-                                <span class="input-group-text">+</span>
+                                <button class="input-group-text decrement-btn">-</button>
+                                <input type="text" name="quantity" class="form-control qty-input text-center" value="1" />
+                                <button class="input-group-text increment-btn">+</button>
                             </div>
                         </div>
                         <div class="col-md-10">
@@ -57,5 +57,41 @@
         </div>
     </div>
 </div>
+
+@endsection
+
+@section('scripts')
+
+<script>
+    $(document).ready(function () {
+        $('.increment-btn').click(function (e) {
+            e.preventDefault();
+
+            var inc_value = $('.qty-input').val();
+            var value = parseInt(inc_value, 10);
+            value = isNaN(value) ? 0 : value;
+            if(value < 10)
+            {
+                value++;
+                $('.qty-input').val(value);
+            }
+
+        });
+
+        $('.decrement-btn').click(function (e) {
+            e.preventDefault();
+
+            var dec_value = $('.qty-input').val();
+            var value = parseInt(dec_value, 10);
+            value = isNaN(value) ? 0 : value;
+            if(value > 1)
+            {
+                value--;
+                $('.qty-input').val(value);
+            }
+
+        });
+    });
+</script>
 
 @endsection
