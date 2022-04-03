@@ -25,7 +25,8 @@ use App\Models\Product;
 
 Route::get('/', [FrontendController::class, 'index']);
 Route::get('category', [FrontendController::class, 'category']);
-Route::get('view-category/{slug}', [FrontendController::class, 'viewcategory']);
+Route::get('category/{slug}', [FrontendController::class, 'viewcategory']);
+Route::get('category/{cate_slug}/{prod_slug}', [FrontendController::class, 'productview']);
 
 
 Auth::routes();
@@ -34,11 +35,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
  Route::middleware(['auth','isAdmin'])->group( function () {
     Route::get('/dashboard', 'App\Http\Controllers\Admin\FrontendController@index');
-    
+
     Route::get('categories','App\Http\Controllers\Admin\CategoryController@index');
     Route::get('add-category','App\Http\Controllers\Admin\CategoryController@add');
     Route::post('insert-category', 'App\Http\Controllers\Admin\CategoryController@insert');
-    
+
     Route::get('edit-category/{id}',[CategoryController::class, 'edit']);
     Route::put('update-category/{id}', [CategoryController::class, 'update']);
     Route::get('delete-category/{id}', [CategoryController::class, 'destroy']);
