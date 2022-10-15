@@ -34,9 +34,11 @@ Auth::routes();
 
 Route::post('add-to-cart', [CartController::class, 'addProduct']);
 Route::post('delete-cart-item', [CartController::class, 'deleteproduct']);
+Route::post('update-cart', [CartController::class, 'updatecart']);
 
 Route::middleware(['auth'])->group(function () {
     Route::get('cart', [CartController::class, 'viewcart']);
+
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
