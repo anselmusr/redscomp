@@ -75,7 +75,7 @@
                                 <tr>
                                     <td>{{ $item->products->name }}</td>
                                     <td>{{ $item->prod_qty }}</td>
-                                    <td>{{ $item->products->selling_price }}</td>
+                                    <td>@currency($item->products->selling_price)</td>
                                 </tr>
                                 @endforeach
                             </tbody>
