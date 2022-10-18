@@ -30,43 +30,43 @@
                             <div class="row checkout-form">
                                 <div class="col-md-6">
                                     <label for="">First Name</label>
-                                    <input type="text" class="form-control" value="{{ Auth::user()->name }}" name="fname" placeholder="Enter First Name">
+                                    <input type="text" class="form-control" value="{{ Auth::user()->name }}" name="fname" placeholder="Enter First Name" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="">Last Name</label>
-                                    <input type="text" class="form-control" value="{{ Auth::user()->lname }}" name="lname" placeholder="Enter Last Name">
+                                    <input type="text" class="form-control" value="{{ Auth::user()->lname }}" name="lname" placeholder="Enter Last Name" required>
                                 </div>
                                 <div class="col-md-6 mt-3">
                                     <label for="">Email</label>
-                                    <input type="text" class="form-control" value="{{ Auth::user()->email }}" name="email" placeholder="Enter Email">
+                                    <input type="text" class="form-control" value="{{ Auth::user()->email }}" name="email" placeholder="Enter Email" required>
                                 </div>
                                 <div class="col-md-6 mt-3">
                                     <label for="">Phone Number</label>
-                                    <input type="text" class="form-control" value="{{ Auth::user()->phone }}" name="phone" placeholder="Enter Phone Number">
+                                    <input type="text" class="form-control" value="{{ Auth::user()->phone }}" name="phone" placeholder="Enter Phone Number" required>
                                 </div>
                                 <div class="col-md-6 mt-3">
                                     <label for="">Address 1</label>
-                                    <input type="text" class="form-control" value="{{ Auth::user()->address1 }}" name="address1" placeholder="Enter Address 1">
+                                    <input type="text" class="form-control" value="{{ Auth::user()->address1 }}" name="address1" placeholder="Enter Address 1" required>
                                 </div>
                                 <div class="col-md-6 mt-3">
                                     <label for="">Address 2</label>
-                                    <input type="text" class="form-control" value="{{ Auth::user()->address2 }}" name="address2" placeholder="Enter Address 2">
+                                    <input type="text" class="form-control" value="{{ Auth::user()->address2 }}" name="address2" placeholder="Enter Address 2" required>
                                 </div>
                                 <div class="col-md-6 mt-3">
                                     <label for="">City</label>
-                                    <input type="text" class="form-control" value="{{ Auth::user()->city }}" name="city" placeholder="Enter City">
+                                    <input type="text" class="form-control" value="{{ Auth::user()->city }}" name="city" placeholder="Enter City" required>
                                 </div>
                                 <div class="col-md-6 mt-3">
                                     <label for="">State</label>
-                                    <input type="text" class="form-control" value="{{ Auth::user()->state }}" name="state" placeholder="Enter State">
+                                    <input type="text" class="form-control" value="{{ Auth::user()->state }}" name="state" placeholder="Enter State" required>
                                 </div>
                                 <div class="col-md-6 mt-3">
                                     <label for="">Country</label>
-                                    <input type="text" class="form-control" value="{{ Auth::user()->country }}" name="country" placeholder="Enter Country">
+                                    <input type="text" class="form-control" value="{{ Auth::user()->country }}" name="country" placeholder="Enter Country" required>
                                 </div>
                                 <div class="col-md-6 mt-3">
                                     <label for="">Pin Code</label>
-                                    <input type="text" class="form-control" value="{{ Auth::user()->pincode }}" name="pincode" placeholder="Enter Pin Code">
+                                    <input type="text" class="form-control" value="{{ Auth::user()->pincode }}" name="pincode" placeholder="Enter Pin Code" required>
                                 </div>
                             </div>
                         </div>
