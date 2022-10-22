@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://redscomp.herokuapp.com/'),
+    'url' => env('APP_URL', 'https://redscomp.herokuapp.com/'),
 
     'asset_url' => env('ASSET_URL'),
 
