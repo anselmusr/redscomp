@@ -31,6 +31,8 @@ return new class extends Migration
             $table->tinyInteger('status')->default('0');
             $table->string('message')->nullable();
             $table->string('tracking_no');
+            $table->string('no_resi')->nullable();
+            $table->string('b_pembayaran')->nullable();
             $table->timestamps();
         });
     }

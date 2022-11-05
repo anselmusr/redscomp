@@ -55,6 +55,8 @@ class CheckoutController extends Controller
         $order->total_price = $total;
 
         $order->tracking_no = 'reds'.rand(1111,9999);
+        $order->no_resi = '-';
+
         $order->save();
 
         $cartitems = Cart::where('user_id', Auth::id())->get();

@@ -23,6 +23,7 @@ class OrderController extends Controller
     public function updateorder(Request $request, $id)
     {
         $orders = Order::find($id);
+        $orders->no_resi = $request->input('no_resi');
         $orders->status = $request->input('order_status');
         $orders->update();
         return redirect('orders')->with('status', "Order Updated Successfully");

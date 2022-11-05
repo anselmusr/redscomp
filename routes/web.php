@@ -55,6 +55,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('my-orders', [UserController::class, 'index']);
     Route::get('view-order/{id}', [UserController::class, 'view']);
+    Route::put('view-order/{id}', [UserController::class, 'updateimg']);
 
     Route::get('wishlist', [WishlistController::class, 'index']);
 });

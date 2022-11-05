@@ -28,6 +28,8 @@ class Order extends Model
         'status',
         'message',
         'tracking_no',
+        'no_resi',
+        'b_pembayaran',
     ];
 
     public function orderitems()

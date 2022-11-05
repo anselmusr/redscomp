@@ -20,6 +20,7 @@
                             <tr>
                                 <th>Order Date</th>
                                 <th>Tracking Number</th>
+                                <th>No. Resi</th>
                                 <th>Total Price</th>
                                 <th>Status</th>
                                 <th>Action</th>
@@ -30,8 +31,9 @@
                                 <tr>
                                     <td>{{ date('d-m-Y', strtotime($item->created_at)) }}</td>
                                     <td>{{ $item->tracking_no }}</td>
+                                    <td>{{ $item->no_resi }}</td>
                                     <td>@currency($item->total_price)</td>
-                                    <td>{{ $item->status == '0' ?'pending' : 'completed' }}</td>
+                                    <td>{{ $item->status == '0' ?'Processing' : 'Completed' }}</td>
                                     <td>
                                         <a href="{{ url('admin/view-order/'.$item->id) }}" class="btn btn-primary">View</a>
                                     </td>

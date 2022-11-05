@@ -65,13 +65,26 @@
                                     </tbody>
                                 </table>
                                 <h4 class="px-2">Grand Total: <span class="float-end">@currency($orders->total_price)</span> </h4>
+                                <hr>
                                 <div class="mt-5 px-2">
-                                    <label for="">Order Status</label>
                                     <form action="{{ url('update-order/'.$orders->id) }}" method="POST">
                                         @csrf
                                         @method('PUT')
+                                        <h5 class="px-2">Bukti Pembayaran :</h5>
+                                        @if($orders->b_pembayaran)
+                                            <img class="px-2" src="{{ asset('assets/uploads/pembayaran/'.$orders->b_pembayaran) }}" width="200px">
+                                        @else
+                                            <div class="card bg-warning">
+                                                <h6 class="px-2 card-body text-center">Customer belum melakukan pembayaran!</h6>
+                                            </div>
+                                        @endif
+                                        <hr>
+                                        <label for="no_resi">No. Resi :</label><br>
+                                        <input type="text" id="no_resi" name="no_resi" value="-">
+                                        <br><br>
+                                        <label for="order_status">Order Status</label>
                                         <select class="form-select" name="order_status">
-                                            <option {{ $orders->status == '0'? 'selected':'' }} value="0">Pending</option>
+                                            <option {{ $orders->status == '0'? 'selected':'' }} value="0">Processing</option>
                                             <option {{ $orders->status == '1'? 'selected':'' }} value="1">Completed</option>
                                         </select>
                                         <button type="submit" class="btn btn-primary float-end mt-3">Update</button>
