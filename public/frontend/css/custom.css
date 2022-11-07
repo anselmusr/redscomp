@@ -22,3 +22,35 @@
     font-size: 14px;
     padding: 5px !important;
 }
+
+/* up to wide mobile */
+@media screen and (max-width: 768px) {
+    /* using the ID of the element */
+    #carouselExampleIndicators {
+        display: none;
+    }
+
+    /* using the class of the element */
+    .carousel {
+        display: none;
+    }
+}
+   /*  HERE IS WHAT YOU NEED*/
+
+   /* set the position to the main parent of the navbar as relative*/
+   .page {
+    position: relative;
+   }
+
+   /*set the positionj of the navbar as sticky and give it the top:0;*/
+   #main-navbar {
+    position: sticky;
+    top:0;
+    z-index: 1100;
+   }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

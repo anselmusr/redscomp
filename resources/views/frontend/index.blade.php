@@ -1,10 +1,14 @@
 @extends('layouts.front')
 
 @section('title')
-    Welcome to Red's Computer
+    Red's Computer
 @endsection
 
+
 @section('main-content')
+<h1 class="mt-5 mb-3" style="text-align: center">Red's Computer</h1>
+<p class="lead mb-5" style="text-align: center">Jl. Jogoripon, Geneng, Pendowoharjo, Kec. Sewon, Kabupaten Bantul, Daerah Istimewa Yogyakarta 55188</p>
+
     @include('layouts.inc.slider')
 
     <div class="py-5">

@@ -23,11 +23,11 @@
             {{ csrf_field() }}
             <div class="row">
                 <div class="col-md-7">
-                    <div class="card">
-                        <div class="card-body">
+                    <div class="card ">
+                        <div class="card-body ">
                             <h6>Basic Details</h6>
                             <hr>
-                            <div class="row checkout-form">
+                            <div class="row checkout-form input-group input-group-outline">
                                 <div class="col-md-6">
                                     <label for="">First Name</label>
                                     <input type="text" class="form-control" value="{{ Auth::user()->name }}" name="fname" placeholder="Enter First Name" required>

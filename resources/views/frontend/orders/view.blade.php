@@ -98,7 +98,7 @@
                                         </div>
                                         @else
                                         <div class="card">
-                                            <h5 class="px-2 card-header bg-warning">Silahkan Upload Bukti Pembayaran!</h5>
+                                            <h5 class="px-2 card-header bg-warning text-white">Silahkan Upload Bukti Pembayaran!</h5>
                                             <div class="card-body">
                                                 <input class="px-2" type="file" name="b_pembayaran" accept="image/*" required>
                                                 <button type="submit" class="btn btn-primary float-end ">Upload</button>

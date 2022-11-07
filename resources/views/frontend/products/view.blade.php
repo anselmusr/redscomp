@@ -52,9 +52,16 @@
                             <input type="hidden" value="{{ $products->id }}" class="prod_id">
                             <label for="Quantity">Quantity</label>
                             <div class="input-group text-center mb-3" style="width:130px;">
-                                <button class="input-group-text decrement-btn">-</button>
+
+                                <div class="input-group w-auto justify-content-end align-items-center">
+                                    <input type="button" value="-" class="button-minus border rounded-circle  icon-shape icon-sm mx-1 decrement-btn" data-field="quantity">
+                                    <input type="number" max="{{ $products->qty }}" value="1" name="quantity" class="form-control border-0 text-center qty-input">
+                                    <input type="button" value="+" class="button-plus border rounded-circle icon-shape icon-sm increment-btn" data-field="quantity">
+                                 </div>
+
+                                {{-- <button class="input-group-text decrement-btn">-</button>
                                 <input type="text" name="quantity" class="form-control qty-input text-center" value="1" />
-                                <button class="input-group-text increment-btn">+</button>
+                                <button class="input-group-text increment-btn">+</button> --}}
                             </div>
                         </div>
                         <div class="col-md-10">
