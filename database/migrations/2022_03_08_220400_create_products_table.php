@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('image');
             $table->integer('qty');
             $table->string('tax');
+            $table->integer('weight');
             $table->tinyInteger('status');
             $table->tinyInteger('trending');
             $table->mediumText('meta_title');

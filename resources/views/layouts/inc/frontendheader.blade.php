@@ -8,41 +8,24 @@
       @yield('title')
     </title>
 
-    <!--     Fonts and icons     -->
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+    <!-- CSS Files -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
-    <!-- Nucleo Icons -->
-    <link href="{{ asset('frontend/css/nucleo-icons.css') }}" rel="stylesheet" />
-    <link href="{{ asset('frontend/css/nucleo-svg.css') }} rel="stylesheet" />
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 
-    <!-- Font Awesome Icons -->
+    <!-- Icons -->
+    <link href="{{ asset('frontend/css/nucleo-icons.css') }}" rel="stylesheet">
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
 
-    <!-- Material Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
-
-    <!-- CSS Files -->
-    <link id="pagestyle" href="{{ asset('frontend/css/custom.css') }}" rel="stylesheet" />
-    <link id="pagestyle" href="{{ asset('frontend/css/bootstrap.css') }}" rel="stylesheet" />
-    <link id="pagestyle" href="{{ asset('frontend/css/material-kit.css?v=3.0.4') }}" rel="stylesheet" />
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="{{ asset('frontend/css/material-kit-pro.min.css') }}" rel="stylesheet">
 
     {{-- owl carousel --}}
     <link id="pagestyle" href="{{ asset('frontend/css/owl.carousel.min.css') }}" rel="stylesheet" />
     <link id="pagestyle" href="{{ asset('frontend/css/owl.theme.default.min.css') }}" rel="stylesheet" />
 
-    {{-- google font --}}
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    {{-- Custom CSS --}}
+    <link id="pagestyle" href="{{ asset('frontend/css/custom.css') }}" rel="stylesheet" />
 
-    {{-- font awesome --}}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
-
-
-
-    <style>
-      a{
-        text-decoration: none !important;
-      }
-    </style>
   </head>

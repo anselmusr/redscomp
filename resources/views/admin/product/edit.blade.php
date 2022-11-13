@@ -64,6 +64,12 @@
                 </div>
 
                 <div class="col-md-6 mb-3">
+                    <label for="">Weight(gram)</label>
+                    <input type="number" value="{{ $products->weight }}" class="form-control" name="weight">
+                    <hr>
+                </div>
+
+                <div class="col-md-6 mb-3">
                     <label for="">Status</label>
                     <input type="checkbox" {{ $products->status == "1" ? 'checked' : ''}} name="status">
                     <hr>
@@ -97,7 +103,7 @@
                     <img src="{{ asset('assets/uploads/products/'.$products->image) }}" alt="Product Image">
                 @endif
                 <div class="col-md-12">
-                    <input type="file" name="image" class="form-control-file">    
+                    <input type="file" name="image" class="form-control-file">
                     <hr>
                 </div>
 

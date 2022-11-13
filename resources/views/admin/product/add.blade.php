@@ -66,6 +66,12 @@
                 </div>
 
                 <div class="col-md-6 mb-3">
+                    <label for="">Weight(gram)</label>
+                    <input type="number" class="form-control" name="weight">
+                    <hr>
+                </div>
+
+                <div class="col-md-6 mb-3">
                     <label for="">Status</label>
                     <input type="checkbox" name="status">
                     <hr>
@@ -96,7 +102,7 @@
                 </div>
 
                 <div class="col-md-12">
-                    <input type="file" name="image" class="form-control-file">    
+                    <input type="file" name="image" class="form-control-file">
                     <hr>
                 </div>
 

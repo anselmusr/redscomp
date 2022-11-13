@@ -35,7 +35,6 @@ Route::get('category', [FrontendController::class, 'category']);
 Route::get('category/{slug}', [FrontendController::class, 'viewcategory']);
 Route::get('category/{cate_slug}/{prod_slug}', [FrontendController::class, 'productview']);
 
-
 Auth::routes();
 
 Route::get('load-cart-count', [CartController::class, 'cartcount']);
@@ -52,6 +51,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('cart', [CartController::class, 'viewcart']);
     Route::get('checkout', [CheckoutController::class, 'index']);
     Route::post('place-order', [CheckoutController::class, 'placeorder']);
+
+    Route::get('province',[CheckoutController::Class, 'get_province'])->name('province');
+    Route::get('/city/{id}',[CheckoutController::Class, 'get_city']);
+    Route::get('/origin={city_origin}&destination={city_destination}&weight={weight}&courier={courier}',[CheckoutController::Class, 'get_ongkir']);
 
     Route::get('my-orders', [UserController::class, 'index']);
     Route::get('view-order/{id}', [UserController::class, 'view']);

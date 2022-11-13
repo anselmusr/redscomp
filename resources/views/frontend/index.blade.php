@@ -20,8 +20,8 @@
                         <div class="item">
                             <a href="{{ url('category/'.$prod->category->slug.'/'.$prod->slug) }}">
                             <div class="card">
-                                <img src="{{ asset('assets/uploads/products/'.$prod->image) }}" alt="Product Image">
-                                <div class="card-body">
+                                <img src="{{ asset('assets/uploads/products/'.$prod->image) }}" alt="Product Image" class="img-fluid shadow border-radius-lg">
+                                <div class="card-body shadow">
                                     <h5>{{ $prod->name }}</h5>
                                     <span class="float-start">
                                         @currency($prod->selling_price)

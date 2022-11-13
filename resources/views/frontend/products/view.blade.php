@@ -51,14 +51,10 @@
                         <div class="col-md-2">
                             <input type="hidden" value="{{ $products->id }}" class="prod_id">
                             <label for="Quantity">Quantity</label>
-                            <div class="input-group text-center mb-3" style="width:130px;">
-
-                                <div class="input-group w-auto justify-content-end align-items-center">
+                            <div class="input-group w-auto justify-content-end align-items-center text-center mb-3" style="width:130px;">
                                     <input type="button" value="-" class="button-minus border rounded-circle  icon-shape icon-sm mx-1 decrement-btn" data-field="quantity">
                                     <input type="number" max="{{ $products->qty }}" value="1" name="quantity" class="form-control border-0 text-center qty-input">
                                     <input type="button" value="+" class="button-plus border rounded-circle icon-shape icon-sm increment-btn" data-field="quantity">
-                                 </div>
-
                                 {{-- <button class="input-group-text decrement-btn">-</button>
                                 <input type="text" name="quantity" class="form-control qty-input text-center" value="1" />
                                 <button class="input-group-text increment-btn">+</button> --}}
@@ -67,9 +63,9 @@
                         <div class="col-md-10">
                             <br/>
                             @if ($products->qty > 0)
-                                <button type="button" class="btn btn-primary addToCartBtn me-3 float-start">Add to cart <i class="fa fa-shopping-cart"></i> </button>
+                                <button type="button" class="btn btn-primary addToCartBtn me-3 float-end">Add to cart <i class="fa fa-shopping-cart"></i> </button>
                             @endif
-                            <button type="button" class="btn btn-success me-3 addToWishlist float-start">Add to Wishlist <i class="fa fa-heart"></i> </button>
+                            <button type="button" class="btn btn-success me-3 addToWishlist float-end">Add to Wishlist <i class="fa fa-heart"></i> </button>
                         </div>
                     </div>
                 </div>

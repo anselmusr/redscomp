@@ -37,6 +37,9 @@
                         <div class="col-md-2 my-auto">
                             <h6> @currency($item->products->selling_price) </h6>
                         </div>
+                        <div class="col-md-2 my-auto">
+                            <h6>{{ $item->products->weight }} gram</h6>
+                        </div>
                         <div class="col-md-3 my-auto">
                             <input type="hidden" class="prod_id" value="{{ $item->prod_id }}">
                             @if($item->products->qty >= $item->prod_qty)

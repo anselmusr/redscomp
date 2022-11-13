@@ -11,7 +11,7 @@
                 <div class="card">
                     <div class="card-header bg-primary">
                         <h4 class="text-white">Order View
-                            <a href="{{ url('my-orders') }}" class="btn btn-warning float-end" >Back</a>
+                            <a href="{{ url('my-orders') }}" class="btn btn-warning float-end">Back</a>
                         </h4>
                     </div>
                     <div class="card-body">
@@ -57,24 +57,32 @@
                                                 <td>{{ $item->qty }}</td>
                                                 <td> @currency($item->price) </td>
                                                 <td>
-                                                    <img src="{{ asset('assets/uploads/products/'.$item->products->image) }}" width="60px" alt="Product Image">
+                                                    <img src="{{ asset('assets/uploads/products/' . $item->products->image) }}"
+                                                        width="60px" alt="Product Image">
 
                                                 </td>
                                             </tr>
                                         @endforeach
                                     </tbody>
                                 </table>
-                                <h4 class="px-2">Grand Total :<span class="float-end">@currency($orders->total_price)</span></h4>
-                                <h6 class="px-2" style="color:red">*Gratis Ongkos Kirim Untuk Seluruh Indonesia</h6>
-                                <br>
-                                <h5 class="px-2">No. Resi : <span class="float-end">{{ $orders->no_resi }}</span></h5>
-                                <hr>
-                                @if($orders->status =='0')
 
+                                <h6 class="px-2">Total : @currency($orders->total_price)<span class="float-end">Ongkos Kirim :
+                                        @currency($orders->ongkir)</span></h6>
+
+
+                                <h4 class="px-2 text-white bg-info">Grand Total :<span class="float-end">@currency($orders->total_price + $orders->ongkir)</span>
+                                </h4>
+                                <br>
+                                <h5 class="px-2">No. Resi : <span class="float-end">{{ $orders->no_resi }}</span>
+                                </h5>
+                                <hr>
+                                @if ($orders->status == '0')
                                     <h5 class="px-2">Please Transfer to :</h5>
-                                    <h5 class="px-2">Bank BRI -<span class="float-end">656001001006500 (Redha Ardy Setyawan)</span></h5><br>
+                                    <h5 class="px-2">Bank BRI -<span class="float-end">656001001006500 (Redha Ardy
+                                            Setyawan)</span></h5><br>
                                     <hr>
-                                    <form action="{{ url('view-order/'.$orders->id) }}" method="POST" enctype="multipart/form-data">
+                                    <form action="{{ url('view-order/' . $orders->id) }}" method="POST"
+                                        enctype="multipart/form-data">
                                         @csrf
                                         @method('PUT')
                                         {{-- <label for="no_resi">No. Resi :</label><br>
@@ -87,30 +95,38 @@
 
 
                                         @if ($orders->b_pembayaran)
-                                        <div class="card">
-                                            <h5 class="px-2 card-header">Bukti Pembayaran :</h5>
-                                            <div class="card-body">
-                                                <img class="px-2" src="{{ asset('assets/uploads/pembayaran/'.$orders->b_pembayaran) }}" width="200px">
-                                                <hr>
-                                                <input class="px-2" type="file" name="b_pembayaran" accept="image/*" required>
-                                                <button type="submit" class="btn btn-primary float-end ">Update</button>
+                                            <div class="card">
+                                                <h5 class="px-2 card-header">Bukti Pembayaran :</h5>
+                                                <div class="card-body">
+                                                    <img class="px-2"
+                                                        src="{{ asset('assets/uploads/pembayaran/' . $orders->b_pembayaran) }}"
+                                                        width="200px">
+                                                    <hr>
+                                                    <input class="px-2" type="file" name="b_pembayaran"
+                                                        accept="image/*" required>
+                                                    <button type="submit"
+                                                        class="btn btn-primary float-end ">Update</button>
+                                                </div>
                                             </div>
-                                        </div>
                                         @else
-                                        <div class="card">
-                                            <h5 class="px-2 card-header bg-warning text-white">Silahkan Upload Bukti Pembayaran!</h5>
-                                            <div class="card-body">
-                                                <input class="px-2" type="file" name="b_pembayaran" accept="image/*" required>
-                                                <button type="submit" class="btn btn-primary float-end ">Upload</button>
+                                            <div class="card">
+                                                <h5 class="px-2 card-header bg-warning text-white">Silahkan Upload Bukti
+                                                    Pembayaran!</h5>
+                                                <div class="card-body">
+                                                    <input class="px-2" type="file" name="b_pembayaran"
+                                                        accept="image/*" required>
+                                                    <button type="submit"
+                                                        class="btn btn-primary float-end ">Upload</button>
+                                                </div>
                                             </div>
-                                        </div>
                                         @endif
 
-                                </form>
+                                    </form>
                                 @else
                                     <div class="card">
                                         <div class="card-body bg-warning">
-                                            <h5 class="px-2">Barang sudah dikirim, Silahkan cek No.Resi di Website Ekpedisi. Terimakasih.</h5>
+                                            <h5 class="px-2">Barang sudah dikirim, Silahkan cek No.Resi di Website
+                                                Ekpedisi. Terimakasih.</h5>
                                         </div>
                                     </div>
                                 @endif
