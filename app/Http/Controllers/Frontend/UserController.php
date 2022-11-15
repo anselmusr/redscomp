@@ -7,22 +7,20 @@ use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
-use Kavist\RajaOngkir\Facades\RajaOngkir;
 
 class UserController extends Controller
 {
     public function index()
     {
-        $orders = Order::where('user_id', Auth::id())->get();
+        $orders = Order::where('user_id', Auth::id())->paginate(5);
         return view('frontend.orders.index', compact('orders'));
     }
 
     public function view($id)
     {
         $orders = Order::where('id', $id)->where('user_id', Auth::id())->first();
-        $provinsi = RajaOngkir::provinsi()->find(10);
 
-        return view('frontend.orders.view', compact('orders', 'provinsi'));
+        return view('frontend.orders.view', compact('orders'));
     }
 
     public function updateimg(Request $request, $id)

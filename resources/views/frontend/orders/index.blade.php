@@ -39,6 +39,9 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        <div class="d-flex justify-content-center">
+                            {{ $orders->links('layouts.inc.frontendpagination') }}
+                        </div>
                     </div>
                 </div>
             </div>
