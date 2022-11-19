@@ -28,4 +28,6 @@
     {{-- Custom CSS --}}
     <link id="pagestyle" href="{{ asset('frontend/css/custom.css') }}" rel="stylesheet" />
 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+
   </head>

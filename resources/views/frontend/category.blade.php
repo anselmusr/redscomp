@@ -5,13 +5,27 @@
 @endsection
 
 @section('main-content')
-    <div class="py-3 mb-4 shadow-sm bg-warning border-top">
+    {{-- <div class="py-3 mb-4 shadow-sm bg-warning border-top">
         <div class="container">
             <h6 class="mb-0">
                 <a href="{{ url('category') }}">
                     Collections
                 </a>
             </h6>
+        </div>
+    </div> --}}
+
+    <div class="container  mt-5">
+        <div class="row">
+            <div class="col-lg-12 mx-auto " >
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb bg-warning shadow">
+                        <li class="breadcrumb-item text-dark" aria-current="page"><a
+                            href="{{ url('category') }}">Collections</a>
+                        </li>
+                    </ol>
+                </nav>
+            </div>
         </div>
     </div>
 
