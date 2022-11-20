@@ -52,30 +52,33 @@
                                             <div class="mt-4">
                                                 <label for="description">Description</label>
                                                 <textarea style="border:solid 1px #ced4da; padding-right:10px; padding-left:10px; resize: none;" rows="6"
-                                                    class="multisteps-form__input form-control" type="text" name="description" style="white-space: pre-wrap;" ></textarea>
+                                                    class="multisteps-form__input form-control" type="text" name="description" style="white-space: pre-wrap;" >{{ $products->description }}</textarea>
                                             </div>
                                         </div>
 
                                         <div class="col-sm-6 mt-sm-3 mt-5">
-                                            <label class="form-control ms-0">Category</label>
-                                            <select class="form-control" name="cate_id" id="choices-category">
-                                                <option value="">{{ $products->category->name }}</option>
-                                            </select>
-                                            <div class="col-md-6 mb-3">
-                                                <label for="">Status</label>
-                                                <input type="checkbox" name="status"
-                                                    {{ $products->status == '1' ? 'checked' : '' }}>
-
-                                                <label for="">Trending</label>
-                                                <input type="checkbox" name="trending"
-                                                    {{ $products->trending == '1' ? 'checked' : '' }}>
-                                            </div>
-
                                             <div class="input-group input-group-dynamic">
                                                 <label for="" class="form-label">Quantity</label>
                                                 <input class="multisteps-form__input form-control" type="number"
                                                     name="qty" value="{{ $products->qty }}" />
                                             </div>
+
+                                            <label class="form-control ms-0">Category</label>
+                                            <select class="form-control" name="cate_id" id="choices-category">
+                                                <option value="">{{ $products->category->name }}</option>
+                                            </select>
+
+                                            <div class="form-check col-md-6 mb-3">
+                                                <label class="custom-control-label"for="">Status</label>
+                                                <input class="form-check-input" type="checkbox" name="status"
+                                                    {{ $products->status == '1' ? 'checked' : '' }}>
+
+                                                <label class="custom-control-label" for="">Trending</label>
+                                                <input class="form-check-input" type="checkbox" name="trending"
+                                                    {{ $products->trending == '1' ? 'checked' : '' }}>
+                                            </div>
+
+
                                         </div>
                                     </div>
                                     <div class="button-row d-flex mt-4">
@@ -90,7 +93,7 @@
                                 <div class="multisteps-form__content">
                                     @if ($products->image)
                                         <img src="{{ asset('assets/uploads/products/' . $products->image) }}"
-                                            alt="Product Image" width="500">
+                                            alt="Product Image" height="250">
                                     @endif
                                     <div class="col-md-12 mt-3">
                                         <input type="file" name="image" class="form-control-file">

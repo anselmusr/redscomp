@@ -50,8 +50,8 @@
                                         <div class="col-sm-6">
                                             <div class="mt-4">
                                                 <label for="description">Description</label>
-                                                <textarea style="border:solid 1px #ced4da;  padding-right:10px; padding-left:10px; resize: none;" rows="6" class="multisteps-form__input form-control" type="text"
-                                                    name="description" style="white-space: pre-wrap;" ></textarea>
+                                                <textarea style="border:solid 1px #ced4da;  padding-right:10px; padding-left:10px; resize: none;" rows="6"
+                                                    class="multisteps-form__input form-control" type="text" name="description" style="white-space: pre-wrap;"></textarea>
                                             </div>
                                         </div>
 
@@ -63,19 +63,21 @@
                                                     <option value="{{ $item->id }}">{{ $item->name }}</option>
                                                 @endforeach
                                             </select>
-                                            <div class="col-md-6 mb-3">
-                                                <label for="">Status</label>
-                                                <input type="checkbox" name="status">
-
-                                                <label for="">Trending</label>
-                                                <input type="checkbox" name="trending">
-                                            </div>
 
                                             <div class="input-group input-group-dynamic">
                                                 <label for="" class="form-label">Quantity</label>
                                                 <input class="multisteps-form__input form-control" type="number"
                                                     name="qty" />
                                             </div>
+
+                                            <div class="form-check col-md-6 mb-3 mt-3">
+                                                <label class="custom-control-label" for="">Status</label>
+                                                <input class="form-check-input" type="checkbox" name="status">
+
+                                                <label class="custom-control-label" for="">Trending</label>
+                                                <input class="form-check-input" type="checkbox" name="trending">
+                                            </div>
+
                                         </div>
                                     </div>
                                     <div class="button-row d-flex mt-4">

@@ -22,26 +22,26 @@ class FrontendController extends Controller
         return view('frontend.category', compact('category'));
     }
 
-    public function viewcategory($slug)
+    public function viewcategory($name)
     {
-        if(Category::where('slug', $slug)->exists())
+        if(Category::where('name', $name)->exists())
         {
-            $category = Category::where('slug', $slug)->first();
+            $category = Category::where('name', $name)->first();
             $products = Product::where('cate_id', $category->id)->where('status','1')->get();
             return view('frontend.products.index', compact('category', 'products'));
         }
         else{
-            return redirect('/')->with('status', "Slug Doesn't Exists");
+            return redirect('/')->with('status', "Not Found");
         }
     }
 
-    public function productview($cate_slug, $prod_slug)
+    public function productview($cate_name, $prod_name)
     {
-        if(Category::where('slug', $cate_slug)->exists())
+        if(Category::where('name', $cate_name)->exists())
         {
-            if(Product::where('name', $prod_slug)->exists())
+            if(Product::where('name', $prod_name)->exists())
             {
-                $products = Product::where('name', $prod_slug)->first();
+                $products = Product::where('name', $prod_name)->first();
                 return view('frontend.products.view', compact('products'));
             }
             else{

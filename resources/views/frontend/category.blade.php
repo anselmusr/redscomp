@@ -37,7 +37,7 @@
                     <div class="row">
                         @foreach ($category as $cate)
                         <div class="col-md-3 mb-3">
-                            <a href="{{ url('category/'.$cate->slug) }}">
+                            <a href="{{ url('category/'.$cate->name) }}">
                             <div class="card">
                                 <img src="{{ asset('assets/uploads/category/'.$cate->image) }}" alt="Category Image">
                                 <div class="card-body">
