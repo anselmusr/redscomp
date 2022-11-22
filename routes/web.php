@@ -1,19 +1,20 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\FrontendController as AdminFrontendController;
-use App\Http\Controllers\Admin\OrderController;
-use App\Http\Controllers\Admin\ProductController;
-use App\Http\Controllers\Frontend\FrontendController;
-use App\Http\Controllers\Frontend\CartController;
-use App\Http\Controllers\Frontend\CheckoutController;
-use App\Http\Controllers\Frontend\UserController;
-use App\Http\Controllers\Frontend\WishlistController;
 use App\Models\Order;
 use App\Models\Product;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Frontend\CartController;
+use App\Http\Controllers\Frontend\UserController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Frontend\ProfileController;
+use App\Http\Controllers\Frontend\CheckoutController;
+use App\Http\Controllers\Frontend\FrontendController;
+use App\Http\Controllers\Frontend\WishlistController;
+use App\Http\Controllers\Admin\FrontendController as AdminFrontendController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,7 +34,7 @@ use App\Models\Product;
 Route::get('/', [FrontendController::class, 'index']);
 Route::get('category', [FrontendController::class, 'category']);
 Route::get('category/{name}', [FrontendController::class, 'viewcategory']);
-Route::get('category/{cate_slug}/{prod_slug}', [FrontendController::class, 'productview']);
+Route::get('category/{cate_name}/{prod_name}', [FrontendController::class, 'productview']);
 
 Auth::routes();
 
@@ -59,6 +60,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('my-orders', [UserController::class, 'index']);
     Route::get('view-order/{id}', [UserController::class, 'view']);
     Route::put('view-order/{id}', [UserController::class, 'updateimg']);
+
+    Route::get('profile-user', [ProfileController::class, 'index']);
+    Route::put('profile-user', [ProfileController::class, 'update']);
+    Route::post('profile-user', [ProfileController::class, 'changePassword']);
+    Route::delete('profile-user/{id}', [ProfileController::class, 'destroy'])->name('users.delete');
 
     Route::get('wishlist', [WishlistController::class, 'index']);
 });

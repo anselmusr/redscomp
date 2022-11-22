@@ -54,7 +54,7 @@
                                     </li>
 
                                     <li>
-                                        <a class="dropdown-item" href="#">
+                                        <a class="dropdown-item" href="{{ url('profile-user') }}">
                                             My Profile
                                         </a>
                                     </li>

@@ -41,7 +41,7 @@ class CheckoutController extends Controller
         $order->fname = $request->input('fname');
         $order->lname = $request->input('lname');
         $order->email = $request->input('email');
-        $order->phone = $request->input('fname');
+        $order->phone = $request->input('phone');
         $order->address1 = $request->input('address1');
         $order->address2 = $request->input('address2');
         $order->city = $request->input('show_city');
@@ -72,7 +72,7 @@ class CheckoutController extends Controller
         $user->name = $request->input('fname');
         $user->lname = $request->input('lname');
         $user->email = $request->input('email');
-        $user->phone = $request->input('fname');
+        $user->phone = $request->input('phone');
         $user->address1 = $request->input('address1');
         $user->address2 = $request->input('address2');
         $user->city = $request->input('show_city');
@@ -101,7 +101,7 @@ class CheckoutController extends Controller
             $user = User::where('id', Auth::id())->first();
             $user->name = $request->input('fname');
             $user->lname = $request->input('lname');
-            $user->phone = $request->input('fname');
+            $user->phone = $request->input('phone');
             $user->address1 = $request->input('address1');
             $user->address2 = $request->input('address2');
             $user->city = $request->input('show_city');

@@ -12,7 +12,7 @@ class CategoryController extends Controller
     public function index()
     {
         $category = Category::all();
-        return view ('admin.category.index', compact('category'));
+        return view('admin.category.index', compact('category'));
     }
 
     public function add()
@@ -23,23 +23,20 @@ class CategoryController extends Controller
     public function insert(Request $request)
     {
         $category = new Category();
-        if($request->hasFile('image'))
-        {
+        if ($request->hasFile('image')) {
             $file = $request->file('image');
-            $ext = $file -> getClientOriginalExtension();
-            $filename = time(). '.'.$ext;
-            $file->move('assets/uploads/category/',$filename);
+            $ext = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $ext;
+            $file->move('assets/uploads/category/', $filename);
             $category->image = $filename;
-
         }
 
         $category->name = $request->input('name');
         $category->description = $request->input('description');
-        $category->status = $request->input('status') == TRUE ? '1':'0';
-        $category->popular = $request->input('popular') == TRUE ? '1':'0';
+        $category->status = $request->input('status') == TRUE ? '1' : '0';
+        $category->popular = $request->input('popular') == TRUE ? '1' : '0';
         $category->save();
         return redirect('/dashboard')->with('status', "Category Added Sucessfully");
-
     }
 
     public function edit($id)
@@ -51,36 +48,31 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         $category = Category::find($id);
-        if($request->hasFile('image'))
-        {
-            $path = 'assets/uploads/category/'.$category->image;
-            if(File::exists($path))
-            {
+        if ($request->hasFile('image')) {
+            $path = 'assets/uploads/category/' . $category->image;
+            if (File::exists($path)) {
                 File::delete($path);
             }
             $file = $request->file('image');
-            $ext = $file -> getClientOriginalExtension();
-            $filename = time(). '.'.$ext;
-            $file->move('assets/uploads/category/',$filename);
+            $ext = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $ext;
+            $file->move('assets/uploads/category/', $filename);
             $category->image = $filename;
         }
         $category->name = $request->input('name');
         $category->description = $request->input('description');
-        $category->status = $request->input('status') == TRUE ? '1':'0';
-        $category->popular = $request->input('popular') == TRUE ? '1':'0';
+        $category->status = $request->input('status') == TRUE ? '1' : '0';
+        $category->popular = $request->input('popular') == TRUE ? '1' : '0';
         $category->update();
-        return redirect('dashboard')->with('status',"Category Updated Successfully");
-
+        return redirect('dashboard')->with('status', "Category Updated Successfully");
     }
 
     public function destroy($id)
     {
         $category = Category::find($id);
-        if($category->image)
-        {
-            $path = 'assets/uploads/category/'.$category->image;
-            if(File::exists($path))
-            {
+        if ($category->image) {
+            $path = 'assets/uploads/category/' . $category->image;
+            if (File::exists($path)) {
                 File::delete($path);
             }
         }

@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Controllers\Controller;
 use App\Models\Order;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
@@ -41,11 +42,7 @@ class UserController extends Controller
             $file->move('assets/uploads/pembayaran/',$filename);
             $orders->b_pembayaran = $filename;
         }
-        // $orders->status = $request->input('b_pembayaran');
         $orders->update();
         return redirect('view-order/'.$id)->with('status', "Image Uploaded");
-        // return view('frontend.orders.view', compact('orders'),['successMsg'=>'Property is updated .']);
-        // return view('frontend.orders.view', compact('orders'))->with('success', 'thank you');
-        // return view('protected.standardUser.includes.documents',compact('documents'),['successMsg'=>'Property is updated .']);
     }
 }

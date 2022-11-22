@@ -3,34 +3,17 @@
 @section('title', $products->name)
 
 @section('main-content')
-
-    {{-- <div class="py-3 mb-4 shadow-sm bg-warning border-top">
-        <div class="container">
-            <h6 class="mb-0">
-                <a href="{{ url('category') }}">
-                    Collections
-                </a> /
-                <a href="{{ url('category/' . $products->category->slug) }}">
-                    {{ $products->category->name }}
-                </a> /
-                <a href="{{ url('category/' . $products->category->slug . '/' . $products->slug) }}">
-                    {{ $products->name }}
-                </a>
-            </h6>
-        </div>
-    </div> --}}
-
     <div class="container  mt-5">
         <div class="row">
-            <div class="col-lg-12 mx-auto " >
+            <div class="col-lg-12 mx-auto ">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-warning shadow">
                         <li class="breadcrumb-item text-dark"><a href="{{ url('category') }}">Collections</a></li>
                         <li class="breadcrumb-item text-dark"><a
-                                href="{{ url('category/' . $products->category->slug) }}">{{ $products->category->name }}</a>
+                                href="{{ url('category/' . $products->category->name) }}">{{ $products->category->name }}</a>
                         </li>
                         <li class="breadcrumb-item text-dark" aria-current="page"><a
-                                href="{{ url('category/' . $products->category->slug . '/' . $products->name) }}">{{ $products->name }}</a>
+                                href="{{ url('category/' . $products->category->name . '/' . $products->name) }}">{{ $products->name }}</a>
                         </li>
                     </ol>
                 </nav>
@@ -80,9 +63,6 @@
                                     <input type="button" value="+"
                                         class="button-plus border rounded-circle icon-shape icon-sm increment-btn"
                                         data-field="quantity">
-                                    {{-- <button class="input-group-text decrement-btn">-</button>
-                                <input type="text" name="quantity" class="form-control qty-input text-center" value="1" />
-                                <button class="input-group-text increment-btn">+</button> --}}
                                 </div>
                             </div>
                             <div class="col-md-10">
