@@ -13,69 +13,83 @@
      <div class="collapse navbar-collapse  w-auto  max-height-vh-100" id="sidenav-collapse-main">
          <ul class="navbar-nav">
              <li class="nav-item">
-                 <a class="nav-link text-dark {{ Request::is('dashboard') ? 'active bg-gradient-primary' : '' }}"
-                     href="{{ url('dashboard') }}">
-                     <div class="text-dark text-center me-2 d-flex align-items-center justify-content-center">
-                         <i class="material-icons opacity-10">dashboard</i>
-                     </div>
-                     <span class="nav-link-text ms-1">Dashboard</span>
-                 </a>
+                 <a href="{{ url('dashboard') }}"
+                     class="nav-link {{ Request::is('dashboard') ? 'active bg-gradient-primary text-white' : 'text-dark ' }} " "
+                   >
+                   <i class="material-icons-round">dashboard</i>
+                   <span class="nav-link-text ms-2 ps-1">Dashboard</span>
+               </a>
              </li>
              <li class="nav-item">
-                 <a class="nav-link text-dark {{ Request::is('categories') ? 'active bg-gradient-primary' : '' }}"
-                     href="{{ url('categories') }}">
-                     <div class="text-dark text-center me-2 d-flex align-items-center justify-content-center">
-                         <i class="material-icons opacity-10">table_view</i>
-                     </div>
-                     <span class="nav-link-text ms-1">Categories</span>
+                 <a data-bs-toggle="collapse" href="#categorysidenav"
+                     class="nav-link text-dark {{ Request::is('add-category', 'categories') ? 'active' : '' }} " "
+                     aria-expanded="false">
+                     <i class="material-icons-round">category</i>
+                     <span class="nav-link-text ms-2 ps-1">Categories</span>
                  </a>
+                 <div class="collapse {{ Request::is('add-category', 'categories') ? 'show' : '' }} "
+                     id="categorysidenav">
+                     <ul class="nav ">
+                         <li class="nav-item ">
+                             <a class="nav-link text-dark {{ Request::is('add-category') ? 'active bg-gradient-primary' : '' }}"
+                                 href="{{ url('add-category') }}">
+                                 <span class="sidenav-mini-icon"> C </span>
+                                 <span class="sidenav-normal  ms-2  ps-1"> Add Category </span>
+                             </a>
+                         </li>
+                         <li class="nav-item ">
+                             <a class="nav-link text-dark {{ Request::is('categories') ? 'active bg-gradient-primary' : '' }}"
+                                 href="{{ url('categories') }}">
+                                 <span class="sidenav-mini-icon"> C </span>
+                                 <span class="sidenav-normal  ms-2  ps-1">Category List</span>
+                             </a>
+                         </li>
+                     </ul>
+                 </div>
              </li>
              <li class="nav-item">
-                 <a class="nav-link text-dark {{ Request::is('add-category') ? 'active bg-gradient-primary' : '' }}"
-                     href="{{ url('add-category') }}">
-                     <div class="text-dark text-center me-2 d-flex align-items-center justify-content-center">
-                         <i class="material-icons opacity-10">table_view</i>
-                     </div>
-                     <span class="nav-link-text ms-1">Add Category</span>
+                 <a data-bs-toggle="collapse" href="#productsidenav"
+                     class="nav-link text-dark {{ Request::is('add-products', 'products') ? 'active' : '' }} " "
+                     aria-expanded="false">
+                     <i class="material-icons-round">inventory_2</i>
+                     <span class="nav-link-text ms-2 ps-1">Products</span>
                  </a>
+                 <div class="collapse {{ Request::is('add-products', 'products') ? 'show' : '' }} "
+                     id="productsidenav">
+                     <ul class="nav ">
+                         <li class="nav-item ">
+                             <a class="nav-link text-dark {{ Request::is('add-products') ? 'active bg-gradient-primary' : '' }}"
+                                 href="{{ url('add-products') }}">
+                                 <span class="sidenav-mini-icon"> P </span>
+                                 <span class="sidenav-normal  ms-2  ps-1"> Add Product </span>
+                             </a>
+                         </li>
+                         <li class="nav-item ">
+                             <a class="nav-link text-dark {{ Request::is('products') ? 'active bg-gradient-primary' : '' }}"
+                                 href="{{ url('products') }}">
+                                 <span class="sidenav-mini-icon"> P </span>
+                                 <span class="sidenav-normal  ms-2  ps-1">Product List</span>
+                             </a>
+                         </li>
+                     </ul>
+                 </div>
              </li>
              <li class="nav-item">
-                 <a class="nav-link text-dark {{ Request::is('products') ? 'active bg-gradient-primary' : '' }}"
-                     href="{{ url('products') }}">
-                     <div class="text-dark text-center me-2 d-flex align-items-center justify-content-center">
-                         <i class="material-icons opacity-10">table_view</i>
-                     </div>
-                     <span class="nav-link-text ms-1">Products</span>
-                 </a>
-             </li>
+                <a href="{{ url('orders') }}"
+                    class="nav-link {{ Request::is('orders') ? 'active bg-gradient-primary text-white' : 'text-dark ' }} " "
+                  >
+                  <i class="material-icons-round">list_alt</i>
+                  <span class="nav-link-text ms-2 ps-1">Orders</span>
+              </a>
+            </li>
              <li class="nav-item">
-                 <a class="nav-link text-dark {{ Request::is('add-products') ? 'active bg-gradient-primary' : '' }}"
-                     href="{{ url('add-products') }}">
-                     <div class="text-dark text-center me-2 d-flex align-items-center justify-content-center">
-                         <i class="material-icons opacity-10">table_view</i>
-                     </div>
-                     <span class="nav-link-text ms-1">Add Products</span>
-                 </a>
-             </li>
-             <li class="nav-item">
-                 <a class="nav-link text-dark {{ Request::is('orders') ? 'active bg-gradient-primary' : '' }}"
-                     href="{{ url('orders') }}">
-                     <div class="text-dark text-center me-2 d-flex align-items-center justify-content-center">
-                         <i class="material-icons opacity-10">table_view</i>
-                     </div>
-                     <span class="nav-link-text ms-1">Orders</span>
-                 </a>
-             </li>
-             <li class="nav-item">
-                 <a class="nav-link text-dark {{ Request::is('users') ? 'active bg-gradient-primary' : '' }}"
-                     href="{{ url('users') }}">
-                     <div class="text-dark text-center me-2 d-flex align-items-center justify-content-center">
-                         <i class="material-icons opacity-10">person</i>
-                     </div>
-                     <span class="nav-link-text ms-1">Users</span>
-                 </a>
-             </li>
-
+                <a href="{{ url('users') }}"
+                    class="nav-link {{ Request::is('users') ? 'active bg-gradient-primary text-white' : 'text-dark ' }} " "
+                  >
+                  <i class="material-icons-round">group</i>
+                  <span class="nav-link-text ms-2 ps-1">Users</span>
+              </a>
+            </li>
          </ul>
      </div>
  </aside>
