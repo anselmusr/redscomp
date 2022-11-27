@@ -3,6 +3,58 @@
 @section('title', $products->name)
 
 @section('main-content')
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <form action="{{ url('/add-rating') }}" method="POST">
+                    @csrf
+                    <input type="hidden" name="product_id" value="{{ $products->id }}">
+                    <div class="modal-header">
+                        <h5 class="modal-title font-weight-normal" id="exampleModalLabel">Rate {{ $products->name }}</h5>
+                        <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="rating-css">
+                            <div class="star-icon">
+                                @if ($user_rating)
+                                    @for ($i = 1; $i <= $user_rating->stars_rated; $i++)
+                                        <input type="radio" value="{{ $i }}" name="product_rating" checked
+                                            id="rating{{ $i }}">
+                                        <label for="rating{{ $i }}" class="fa fa-star"></label>
+                                    @endfor
+                                    @for ($j = $user_rating->stars_rated + 1; $j <= 5; $j++)
+                                        <input type="radio" value="{{ $j }}" name="product_rating"
+                                            id="rating{{ $j }}">
+                                        <label for="rating{{ $j }}" class="fa fa-star"></label>
+                                    @endfor
+                                @else
+                                    <input type="radio" value="1" name="product_rating" checked id="rating1">
+                                    <label for="rating1" class="fa fa-star"></label>
+                                    <input type="radio" value="2" name="product_rating" id="rating2">
+                                    <label for="rating2" class="fa fa-star"></label>
+                                    <input type="radio" value="3" name="product_rating" id="rating3">
+                                    <label for="rating3" class="fa fa-star"></label>
+                                    <input type="radio" value="4" name="product_rating" id="rating4">
+                                    <label for="rating4" class="fa fa-star"></label>
+                                    <input type="radio" value="5" name="product_rating" id="rating5">
+                                    <label for="rating5" class="fa fa-star"></label>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn bg-gradient-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <div class="container  mt-5">
         <div class="row">
             <div class="col-lg-12 mx-auto ">
@@ -26,7 +78,8 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-4 border-right">
-                        <img src="{{ asset('assets/uploads/products/' . $products->image) }}" class="w-100" alt="">
+                        <img src="{{ asset('assets/uploads/products/' . $products->image) }}" class="w-100"
+                            alt="">
                     </div>
                     <div class="col-md-8">
                         <h2 class="mb-0">
@@ -36,13 +89,36 @@
                                 </label>
                             @endif
                         </h2>
+                        @php $ratenum = number_format($rating_value) @endphp
+                        <div class="rating">
+                            @for ($i = 1; $i <= $ratenum; $i++)
+                                <i class="material-icons text-lg">grade</i>
+                            @endfor
+                            @for ($j = $ratenum + 1; $j <= 5; $j++)
+                                <i class="material-icons text-lg">star_outline</i>
+                            @endfor
+                            <span>
+                                @if ($ratings->count() > 0)
+                                    {{ $ratings->count() }} Ratings
+                                @else
+                                    No Ratings
+                                @endif
+                            </span>
+                        </div>
 
                         <hr>
                         <label class="me-3">Original Price : <s>@currency($products->original_price)</s></label>
                         <label class="fw-bold">Selling Price : @currency($products->selling_price)</label>
+
                         <p class="mt-3">
                             {!! nl2br(e($products->description)) !!}
                         </p>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn bg-gradient-primary" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">
+                            Rate This Product
+                        </button>
+
                         <hr>
                         @if ($products->qty > 0)
                             <label class="badge bg-success">In Stock</label>
@@ -71,7 +147,8 @@
                                     <button type="button" class="btn btn-primary addToCartBtn me-3 float-end">Add to cart
                                         <i class="fa fa-shopping-cart"></i> </button>
                                 @endif
-                                <button type="button" class="btn btn-success me-3 addToWishlist float-end">Add to Wishlist
+                                <button type="button" class="btn btn-success me-3 addToWishlist float-end">Add to
+                                    Wishlist
                                     <i class="fa fa-heart"></i> </button>
                             </div>
                         </div>

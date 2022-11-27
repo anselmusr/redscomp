@@ -15,6 +15,7 @@ use App\Http\Controllers\Frontend\CheckoutController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\WishlistController;
 use App\Http\Controllers\Admin\FrontendController as AdminFrontendController;
+use App\Http\Controllers\Frontend\RatingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,6 +61,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('my-orders', [UserController::class, 'index']);
     Route::get('view-order/{id}', [UserController::class, 'view']);
     Route::put('view-order/{id}', [UserController::class, 'updateimg']);
+
+    Route::post('add-rating', [RatingController::class, 'add']);
 
     Route::get('profile-user', [ProfileController::class, 'index']);
     Route::put('profile-user', [ProfileController::class, 'update']);
