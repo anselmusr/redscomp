@@ -16,6 +16,7 @@ use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\WishlistController;
 use App\Http\Controllers\Admin\FrontendController as AdminFrontendController;
 use App\Http\Controllers\Frontend\RatingController;
+use App\Http\Controllers\Frontend\ReviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,6 +64,11 @@ Route::middleware(['auth'])->group(function () {
     Route::put('view-order/{id}', [UserController::class, 'updateimg']);
 
     Route::post('add-rating', [RatingController::class, 'add']);
+
+    Route::get('add-review/{product_name}/userreview', [ReviewController::class, 'add']);
+    Route::post('add-review', [ReviewController::class, 'create']);
+    Route::get('edit-review/{product_name}/userreview', [ReviewController::class, 'edit']);
+    Route::put('update-review', [ReviewController::class, 'update']);
 
     Route::get('profile-user', [ProfileController::class, 'index']);
     Route::put('profile-user', [ProfileController::class, 'update']);

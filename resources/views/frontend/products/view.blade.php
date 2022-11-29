@@ -85,8 +85,7 @@
                         <h2 class="mb-0">
                             {{ $products->name }}
                             @if ($products->trending == '1')
-                                <label style="font-size: 16px;" class="float-end badge bg-danger trending-tag"> Trending
-                                </label>
+                                <span class="badge badge-danger float-end trending-tag" style="font-size: 16px;">Trending</span>
                             @endif
                         </h2>
                         @php $ratenum = number_format($rating_value) @endphp
@@ -118,6 +117,10 @@
                             data-bs-target="#exampleModal">
                             Rate This Product
                         </button>
+                        <a href="{{ url('add-review/' . $products->name . '/userreview') }}"
+                            class="btn bg-gradient-primary">
+                            Write a review
+                        </a>
 
                         <hr>
                         @if ($products->qty > 0)
@@ -153,6 +156,53 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-3">
+        <div class="card shadow product_data">
+            <div class="card-body">
+                <div class="row">
+                    <h4 class="mb-3">User Reviews</h4>
+                    @if ($reviews->count() > 0)
+                        <div class="col-md-12">
+                            @foreach ($reviews as $item)
+                                <div class="user-review mb-3" style="background-color: #e9ecef; padding: 20px; border-radius: 15px;">
+                                    <label for="">{{ $item->user->name . ' ' . $item->user->lname }}</label>
+                                    @if ($item->user_id == Auth::id())
+                                        <a class="float-end" href="{{ url('edit-review/' . $products->name . '/userreview') }}">Edit</a>
+                                    @endif
+                                    <br>
+                                    @php
+                                        $rating = App\Models\Rating::where('prod_id', $products->id)
+                                            ->where('user_id', $item->user->id)
+                                            ->first();
+                                    @endphp
+                                    @if ($rating)
+                                        @php
+                                            $user_rated = $rating->stars_rated;
+                                        @endphp
+
+                                        @for ($i = 1; $i <= $user_rated; $i++)
+                                            <i class="material-icons text-lg">grade</i>
+                                        @endfor
+                                        @for ($j = $user_rated + 1; $j <= 5; $j++)
+                                            <i class="material-icons text-lg">star_outline</i>
+                                        @endfor
+                                    @endif
+                                    <small>Reviewed on {{ $item->created_at->format('d M Y') }}</small>
+                                    <p align="justify">
+                                        {{ $item->user_review }}
+                                    </p>
+                                </div>
+                            @endforeach
+                        </div>
+                    @else
+                        <p class="text-center">No user review this product.</p>
+                    @endif
+
                 </div>
             </div>
         </div>
