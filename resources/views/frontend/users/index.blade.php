@@ -56,7 +56,7 @@
                     <div class="row justify-content-center align-items-center">
                         <div class="col-sm-auto col-4">
                             <div class="avatar avatar-xl position-relative">
-                                <img src="{{ asset('assets/images/bruce-mars.jpg') }}" alt="bruce"
+                                <img src="{{ asset('assets/images/person.jpg') }}" alt="bruce"
                                     class="w-100 rounded-circle shadow-sm">
                             </div>
                         </div>
@@ -102,14 +102,14 @@
                                 <div class="col-6">
                                     <div class="input-group input-group-static">
                                         <label>Email</label>
-                                        <input type="email" class="form-control" value="{{ $profile->email }}"
+                                        <input type="email" class="form-control" value="{{ $profile->email }}" pattern="/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/"
                                             name="email">
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="input-group input-group-static">
                                         <label>Phone</label>
-                                        <input type="text" class="form-control" value="{{ $profile->phone }}"
+                                        <input type="text" class="form-control" value="{{ $profile->phone }}" pattern="^(\+62|62|0)8[1-9][0-9]{6,9}$"
                                             name="phone">
                                     </div>
                                 </div>
@@ -157,7 +157,7 @@
                                 <div class="col-6">
                                     <div class="input-group input-group-static">
                                         <label>Postal Code</label>
-                                        <input type="text" class="form-control" value="{{ $profile->pincode }}"
+                                        <input type="text" class="form-control" value="{{ $profile->pincode }}" pattern="^([1-9])[0-9]{4}$"
                                             name="pincode">
                                     </div>
                                 </div>

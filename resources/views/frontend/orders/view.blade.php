@@ -85,15 +85,6 @@
                                         enctype="multipart/form-data">
                                         @csrf
                                         @method('PUT')
-                                        {{-- <label for="no_resi">No. Resi :</label><br>
-                                        <input type="text" id="no_resi" name="no_resi" value="-"><br>
-                                        <select class="form-select" name="order_status">
-                                            <option {{ $orders->status == '0'? 'selected':'' }} value="0">Processing</option>
-                                            <option {{ $orders->status == '1'? 'selected':'' }} value="1">Completed</option>
-                                        </select> --}}
-
-
-
                                         @if ($orders->b_pembayaran)
                                             <div class="card">
                                                 <h5 class="px-2 card-header">Bukti Pembayaran :</h5>
@@ -130,9 +121,6 @@
                                         </div>
                                     </div>
                                 @endif
-                                {{-- <input class="px-2" type="file" name="image" class="form-control-file">
-                                <button type="submit" class="btn btn-primary float-end">Upload proof of payment</button> --}}
-
                             </div>
                         </div>
                     </div>

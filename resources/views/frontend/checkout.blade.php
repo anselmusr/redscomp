@@ -40,12 +40,12 @@
                                 </div>
                                 <div class="col-md-6 mt-3">
                                     <label for="">Email</label>
-                                    <input type="text" class="form-control" value="{{ Auth::user()->email }}"
+                                    <input type="text" class="form-control" value="{{ Auth::user()->email }}" pattern="/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/"
                                         name="email" placeholder="Enter Email" required>
                                 </div>
                                 <div class="col-md-6 mt-3">
                                     <label for="">Phone Number</label>
-                                    <input type="text" class="form-control" value="{{ Auth::user()->phone }}"
+                                    <input type="text" class="form-control" value="{{ Auth::user()->phone }}" pattern="^(\+62|62|0)8[1-9][0-9]{6,9}$"
                                         name="phone" placeholder="Enter Phone Number" required>
                                 </div>
                                 <div class="col-md-6 mt-3">
@@ -64,12 +64,6 @@
                                     <input type="text" class="form-control" value="{{ Auth::user()->country }}"
                                         name="country" placeholder="Enter Country" required>
                                 </div>
-
-                                {{-- <div class="col-md-6 mt-3">
-                                    <label for="">City</label>
-                                    <input type="text" class="form-control" value="{{ Auth::user()->city }}" name="city" placeholder="Enter City" required>
-                                </div> --}}
-
                                 <div class="col-md-6 mt-3">
                                     <label for="state">State</label>
                                     <select name="province_id" id="province_id" class="form-control" required>
@@ -84,19 +78,7 @@
                                     </select>
 
                                     <input type="hidden" class="form-control" id="show_province" name="show_province">
-                                    {{-- <input type="text" class="form-control" value="{{ Auth::user()->state }}" name="state" placeholder="Enter State" required> --}}
                                 </div>
-
-                                {{-- <div class="form-group form-group--inline">
-                                    <label for="provinsi">Provinsi Tujuan</label>
-                                    <select name="province_id" id="province_id" class="form-control">
-                                    <option value="">Provinsi Tujuan</option>
-                                    @foreach ($provinsi as $row)
-                                    <option value="{{$row['province_id']}}" namaprovinsi="{{$row['province']}}">{{$row['province']}}</option>
-                                    @endforeach
-                                    </select>
-                                </div> --}}
-
                                 <div class="col-md-6 mt-3">
                                     <label for="city">City</label>
                                     <select name="city_id" id="city_id" class="form-control" required>
@@ -107,7 +89,7 @@
 
                                 <div class="col-md-6 mt-3">
                                     <label for="">Postal Code</label>
-                                    <input type="text" class="form-control" value="{{ Auth::user()->pincode }}"
+                                    <input type="text" class="form-control" value="{{ Auth::user()->pincode }}" pattern="^([1-9])[0-9]{4}$"
                                         name="pincode" placeholder="Enter Postal Code" required>
                                 </div>
                             </div>
@@ -142,32 +124,17 @@
                                 </table>
                                 <hr>
                                 <div class="row checkout-form input-group input-group-outline px-2 mb-6">
-
                                     <div class="col-md-6 mt-3">
                                         <label for="">Weight (gram)</label>
                                         <input class="form-control" type="text" value="{{ $total_weight }}"
                                             id="weight" name="weight" readonly>
                                     </div>
-
-                                    {{-- <div class="col-md-6 mt-3">
-                                        <label>Pilih Ekspedisi<span>*</span>
-                                        </label>
-                                        <select name="courier" id="courier" class="form-control">
-                                            <option value="">Pilih kurir</option>
-                                            <option value="jne">JNE</option>
-                                            <option value="tiki">TIKI</option>
-                                            <option value="pos">POS INDONESIA</option>
-                                        </select>
-                                    </div> --}}
-
                                     <div class="col-md-6 mt-3">
                                         <label for="ekspedisi">Pilih Kurir</label>
                                         <select name="courier" id="ekspedisi" class="form-control" required>
                                             <option value="">-- Select Courier ---</option>
                                         </select>
                                     </div>
-
-
                                     <div class="mt-3">
                                         <label>Pilih Layanan<span>*</span>
                                         </label>
