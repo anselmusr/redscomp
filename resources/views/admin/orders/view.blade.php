@@ -11,7 +11,7 @@
                 <div class="card">
                     <div class="card-header bg-primary">
                         <h4 class="text-white">Order View
-                            <a href="{{ url('orders') }}" class="btn btn-warning float-end" >Back</a>
+                            <a href="{{ url('orders') }}" class="btn btn-warning float-end">Back</a>
                         </h4>
                     </div>
                     <div class="card-body">
@@ -57,7 +57,8 @@
                                                 <td>{{ $item->qty }}</td>
                                                 <td> @currency($item->price) </td>
                                                 <td>
-                                                    <img src="{{ asset('assets/uploads/products/'.$item->products->image) }}" width="60px" alt="Product Image">
+                                                    <img src="{{ asset('assets/uploads/products/' . $item->products->image) }}"
+                                                        width="60px" alt="Product Image">
 
                                                 </td>
                                             </tr>
@@ -67,27 +68,40 @@
                                 <h4 class="px-2">Grand Total: <span class="float-end">@currency($orders->total_price)</span> </h4>
                                 <hr>
                                 <div class="mt-5 px-2">
-                                    <form action="{{ url('update-order/'.$orders->id) }}" method="POST">
+                                    <form action="{{ url('update-order/' . $orders->id) }}" method="POST">
                                         @csrf
                                         @method('PUT')
                                         <h5 class="px-2">Bukti Pembayaran :</h5>
-                                        @if($orders->b_pembayaran)
-                                            <img class="px-2" src="{{ asset('assets/uploads/pembayaran/'.$orders->b_pembayaran) }}" width="200px">
+                                        @if ($orders->b_pembayaran)
+                                            <img class="px-2"
+                                                src="{{ asset('assets/uploads/pembayaran/' . $orders->b_pembayaran) }}"
+                                                width="200px">
                                         @else
                                             <div class="card bg-warning">
-                                                <h6 class="px-2 card-body text-center">Customer belum melakukan pembayaran!</h6>
+                                                <h6 class="px-2 card-body text-center">Customer belum melakukan pembayaran!
+                                                </h6>
                                             </div>
                                         @endif
                                         <hr>
-                                        <label for="no_resi">No. Resi :</label><br>
-                                        <input type="text" id="no_resi" name="no_resi" value="-">
-                                        <br><br>
+                                        <label for="">Ekspedisi :</label>
+                                        <div class="border col-md-3" style="text-transform:uppercase">
+                                            {{ $orders->ekspedisi }}</div>
+
+                                        <hr>
+                                        <div class="input-group input-group-outline my-3">
+                                            <label class="form-label">No.Resi</label>
+                                            <input type="text" class="form-control" id="no_resi" name="no_resi">
+                                          </div>
+
                                         <label for="order_status">Order Status</label>
                                         <select class="form-select" name="order_status">
-                                            <option {{ $orders->status == '0'? 'selected':'' }} value="0">Processing</option>
-                                            <option {{ $orders->status == '1'? 'selected':'' }} value="1">Completed</option>
+                                            <option {{ $orders->status == '0' ? 'selected' : '' }} value="0">
+                                                Processing
+                                            </option>
+                                            <option {{ $orders->status == '1' ? 'selected' : '' }} value="1">Completed
+                                            </option>
                                         </select>
-                                        <button type="submit" class="btn btn-primary float-end mt-3">Update</button>
+                                        <button type="submit" class="btn btn-primary float-end mt-5">Update</button>
                                     </form>
                                 </div>
                             </div>
@@ -97,5 +111,4 @@
             </div>
         </div>
     </div>
-
 @endsection

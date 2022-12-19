@@ -22,12 +22,12 @@ return new class extends Migration
             $table->string('phone');
             $table->string('address1');
             $table->string('address2');
-            // $table->string('phone');
             $table->string('city');
             $table->string('state');
             $table->string('country');
             $table->string('pincode');
             $table->string('total_price');
+            $table->string('ekspedisi');
             $table->string('layanan');
             $table->integer('ongkir');
             $table->tinyInteger('status')->default('0');

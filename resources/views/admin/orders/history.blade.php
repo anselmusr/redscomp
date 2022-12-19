@@ -31,7 +31,7 @@
                                 <tr>
                                     <td>{{ date('d-m-Y', strtotime($item->created_at)) }}</td>
                                     <td>{{ $item->tracking_no }}</td>
-                                    <td>{{ $item->no_resi }}</td>
+                                    <td>{{ strtoupper($item->ekspedisi) .' - '. $item->no_resi }}</td>
                                     <td>@currency($item->total_price)</td>
                                     <td>{{ $item->status == '0' ?'Processing' : 'Completed' }}</td>
                                     <td>

@@ -59,6 +59,7 @@ class CheckoutController extends Controller
 
         $order->total_price = $total;
 
+        $order->ekspedisi = $request->input('courier');
         $order->layanan = $request->input('layanan');
         $order->ongkir = str_replace(['+', '-'], '', filter_var($request->input('layanan'), FILTER_SANITIZE_NUMBER_INT));
 

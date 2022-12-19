@@ -25,6 +25,7 @@ class Order extends Model
         'country',
         'pincode',
         'total_price',
+        'ekspedisi',
         'layanan',
         'ongkir',
         'status',

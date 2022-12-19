@@ -40,7 +40,7 @@
                                 </div>
                                 <div class="col-md-6 mt-3">
                                     <label for="">Email</label>
-                                    <input type="text" class="form-control" value="{{ Auth::user()->email }}" pattern="/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/"
+                                    <input type="text" class="form-control" value="{{ Auth::user()->email }}"
                                         name="email" placeholder="Enter Email" required>
                                 </div>
                                 <div class="col-md-6 mt-3">
