@@ -21,36 +21,47 @@ class CategoriesTableSeeder extends Seeder
         \DB::table('categories')->insert(array (
             0 => 
             array (
-                'created_at' => '2022-11-15 16:40:58',
-                'description' => 'Menyediakan berbagai laptop baru dengan harga terjangkau',
                 'id' => 1,
-                'image' => '1668530458.jpg',
                 'name' => 'Laptop Baru',
-                'popular' => 1,
+                'description' => 'Menyediakan berbagai laptop baru dengan harga terjangkau',
                 'status' => 1,
+                'popular' => 1,
+                'image' => '1668530458.jpg',
+                'created_at' => '2022-11-15 16:40:58',
                 'updated_at' => '2022-11-15 16:40:58',
             ),
             1 => 
             array (
-                'created_at' => '2022-11-15 16:44:12',
-                'description' => 'Menyediakan laptop second dengan kondisi yang masih bagus',
                 'id' => 2,
-                'image' => '1668530652.jpg',
                 'name' => 'Laptop Second',
-                'popular' => 1,
+                'description' => 'Menyediakan laptop second dengan kondisi yang masih bagus',
                 'status' => 1,
+                'popular' => 1,
+                'image' => '1668530652.jpg',
+                'created_at' => '2022-11-15 16:44:12',
                 'updated_at' => '2022-11-15 16:44:12',
             ),
             2 => 
             array (
-                'created_at' => '2022-11-15 16:45:01',
-                'description' => 'Menyediakan Komputer second dengan kondisi yang bagus',
                 'id' => 3,
-                'image' => '1668530701.jpg',
                 'name' => 'Komputer Second',
-                'popular' => 1,
+                'description' => 'Menyediakan Komputer second dengan kondisi yang bagus',
                 'status' => 1,
+                'popular' => 1,
+                'image' => '1668530701.jpg',
+                'created_at' => '2022-11-15 16:45:01',
                 'updated_at' => '2022-11-15 16:45:01',
+            ),
+            3 => 
+            array (
+                'id' => 4,
+                'name' => 'Peripheral',
+                'description' => 'berisi berbagai macam peripheral seperti mouse, keboard dll.',
+                'status' => 1,
+                'popular' => 1,
+                'image' => '1671614271.jpg',
+                'created_at' => '2022-12-21 09:17:51',
+                'updated_at' => '2022-12-21 09:17:51',
             ),
         ));
         

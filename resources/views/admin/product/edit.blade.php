@@ -32,15 +32,15 @@
                                 <div class="multisteps-form__content">
                                     <div class="row mt-3">
                                         <div class="col-12 col-sm-6">
-                                            <div class="input-group input-group-dynamic">
-                                                <label for="" class="form-label">Name</label>
+                                            <div class="input-group input-group-static">
+                                                <label for="">Name</label>
                                                 <input class="multisteps-form__input form-control" type="text"
                                                     name="name" value="{{ $products->name }}" />
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-6 mt-3 mt-sm-0">
-                                            <div class="input-group input-group-dynamic">
-                                                <label for="" class="form-label">Weight (gram)</label>
+                                            <div class="input-group input-group-static">
+                                                <label for="">Weight (gram)</label>
                                                 <input class="multisteps-form__input form-control" type="text"
                                                     name="weight" value="{{ $products->weight }}" />
                                             </div>
@@ -57,8 +57,8 @@
                                         </div>
 
                                         <div class="col-sm-6 mt-sm-3 mt-5">
-                                            <div class="input-group input-group-dynamic">
-                                                <label for="" class="form-label">Quantity</label>
+                                            <div class="input-group input-group-static">
+                                                <label for="">Quantity</label>
                                                 <input class="multisteps-form__input form-control" type="number"
                                                     name="qty" value="{{ $products->qty }}" />
                                             </div>
@@ -113,16 +113,16 @@
                                     <h5 class="font-weight-bolder mb-3">Price</h5>
                                     <div class="row">
                                         <div>
-                                            <div class="input-group input-group-dynamic">
-                                                <label class="form-label">Original Price</label>
+                                            <div class="input-group input-group-static">
+                                                <label>Original Price</label>
                                                 <input type="number" class="form-control w-100" name="original_price" value="{{ $products->original_price }}">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="mt-5">
-                                            <div class="input-group input-group-dynamic">
-                                                <label class="form-label">Selling Price</label>
+                                            <div class="input-group input-group-static">
+                                                <label>Selling Price</label>
                                                 <input type="number" class="form-control w-100" name="selling_price" value="{{ $products->selling_price }}">
                                             </div>
                                         </div>

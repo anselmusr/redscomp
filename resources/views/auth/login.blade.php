@@ -21,8 +21,8 @@
                                 <form method="POST" action="{{ route('login') }}" class="login-form">
                                     @csrf
 
-                                    <div class="input-group input-group-outline mb-3">
-                                        <label for="email" class="form-label">{{ __('Email Address') }}</label>
+                                    <div class="input-group input-group-static mb-3">
+                                        <label for="email">{{ __('Email Address') }}</label>
                                         <input id="email" type="email"
                                             class="form-control @error('email') is-invalid @enderror" name="email"
                                             value="{{ old('email') }}" required autofocus>
@@ -33,8 +33,8 @@
                                             </span>
                                         @enderror
                                     </div>
-                                    <div class="input-group input-group-outline mb-4">
-                                        <label for="password" class="form-label">{{ __('Password') }}</label>
+                                    <div class="input-group input-group-static mb-4">
+                                        <label for="password">{{ __('Password') }}</label>
                                         <input id="password" type="password"
                                             class="form-control @error('password') is-invalid @enderror" name="password"
                                             required>

@@ -73,8 +73,11 @@
                                 <h4 class="px-2 text-white bg-info">Grand Total :<span class="float-end">@currency($orders->total_price + $orders->ongkir)</span>
                                 </h4>
                                 <br>
+                                @if ($orders->b_pembayaran)
                                 <h5 class="px-2">No. Resi : <span class="float-end">{{ $orders->no_resi }}</span>
                                 </h5>
+                                @endif
+
                                 <hr>
                                 @if ($orders->status == '0')
                                     <h5 class="px-2">Please Transfer to :</h5>
@@ -114,11 +117,9 @@
 
                                     </form>
                                 @else
-                                    <div class="card">
-                                        <div class="card-body bg-warning">
-                                            <h5 class="px-2">Barang sudah dikirim, Silahkan cek No.Resi di Website
-                                                Ekpedisi. Terimakasih.</h5>
-                                        </div>
+                                    <div class="alert alert-success text-white" role="alert">
+                                        <strong>Barang sudah dikirim!</strong> Silahkan cek No.Resi di Website
+                                                Ekpedisi. Terimakasih.
                                     </div>
                                 @endif
                             </div>

@@ -31,8 +31,8 @@
                                 <div class="multisteps-form__content">
                                     <div class="row mt-3">
                                         <div class="col-12">
-                                            <div class="input-group input-group-dynamic">
-                                                <label for="" class="form-label" >Name</label>
+                                            <div class="input-group input-group-static">
+                                                <label for="" >Name</label>
                                                 <input class="multisteps-form__input form-control" type="text"
                                                     name="name" value="{{ $category->name }}" />
                                             </div>

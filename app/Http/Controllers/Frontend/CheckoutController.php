@@ -64,7 +64,7 @@ class CheckoutController extends Controller
         $order->ongkir = str_replace(['+', '-'], '', filter_var($request->input('layanan'), FILTER_SANITIZE_NUMBER_INT));
 
         $order->tracking_no = 'reds' . rand(1111, 9999);
-        $order->no_resi = '-';
+        $order->no_resi = null;
 
         $order->save();
 

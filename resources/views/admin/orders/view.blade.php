@@ -71,28 +71,28 @@
                                     <form action="{{ url('update-order/' . $orders->id) }}" method="POST">
                                         @csrf
                                         @method('PUT')
-                                        <h5 class="px-2">Bukti Pembayaran :</h5>
+
                                         @if ($orders->b_pembayaran)
+                                            <h5 class="px-2">Bukti Pembayaran :</h5>
                                             <img class="px-2"
                                                 src="{{ asset('assets/uploads/pembayaran/' . $orders->b_pembayaran) }}"
                                                 width="200px">
+
+                                            <hr>
+                                            <div class="input-group input-group-outline my-3">
+                                                <label class="form-label">No.Resi</label>
+                                                <input type="text" class="form-control" id="no_resi" name="no_resi">
+                                            </div>
                                         @else
-                                            <div class="card bg-warning">
-                                                <h6 class="px-2 card-body text-center">Customer belum melakukan pembayaran!
-                                                </h6>
+                                            <div class="alert alert-warning text-white" role="alert">
+                                                <strong>Warning!</strong> Customer belum melakukan pembayaran!
                                             </div>
                                         @endif
                                         <hr>
                                         <label for="">Ekspedisi :</label>
                                         <div class="border col-md-3" style="text-transform:uppercase">
                                             {{ $orders->ekspedisi }}</div>
-
                                         <hr>
-                                        <div class="input-group input-group-outline my-3">
-                                            <label class="form-label">No.Resi</label>
-                                            <input type="text" class="form-control" id="no_resi" name="no_resi">
-                                          </div>
-
                                         <label for="order_status">Order Status</label>
                                         <select class="form-select" name="order_status">
                                             <option {{ $orders->status == '0' ? 'selected' : '' }} value="0">

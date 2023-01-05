@@ -5,45 +5,52 @@
 @endsection
 
 @section('main-content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header bg-primary">
-                    <h4 class="text-white">New Orders
-                        <a href="{{ 'order-history' }}" class="btn btn-warning float-end">Order History</a>
-                    </h4>
-                </div>
-                <div class="card-body">
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th>Order Date</th>
-                                <th>Tracking Number</th>
-                                <th>No. Resi</th>
-                                <th>Total Price</th>
-                                <th>Status</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($orders as $item)
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header bg-primary">
+                        <h4 class="text-white">New Orders
+                            <a href="{{ 'order-history' }}" class="btn btn-warning float-end">Order History</a>
+                        </h4>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-bordered">
+                            <thead>
                                 <tr>
-                                    <td>{{ date('d-m-Y', strtotime($item->created_at)) }}</td>
-                                    <td>{{ $item->tracking_no }}</td>
-                                    <td>{{ strtoupper($item->ekspedisi) .' - '. $item->no_resi }}</td>
-                                    <td>@currency($item->total_price)</td>
-                                    <td>{{ $item->status == '0' ?'Processing' : 'Completed' }}</td>
-                                    <td>
-                                        <a href="{{ url('admin/view-order/'.$item->id) }}" class="btn btn-primary">View</a>
-                                    </td>
+                                    <th>Order Date</th>
+                                    <th>Tracking Number</th>
+                                    <th>No. Resi</th>
+                                    <th>Total Price</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
                                 </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                @foreach ($orders as $item)
+                                    <tr>
+                                        <td>{{ date('d-m-Y', strtotime($item->created_at)) }}</td>
+                                        <td>{{ $item->tracking_no }}</td>
+                                        <td>
+                                            @if ($item->no_resi)
+                                                {{ strtoupper($item->ekspedisi) . ' - ' . $item->no_resi }}
+                                            @else
+                                                {{ strtoupper($item->ekspedisi) }}
+                                            @endif
+                                        </td>
+                                        <td>@currency($item->total_price)</td>
+                                        <td>{{ $item->status == '0' ? 'Processing' : 'Completed' }}</td>
+                                        <td>
+                                            <a href="{{ url('admin/view-order/' . $item->id) }}"
+                                                class="btn btn-primary">View</a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection

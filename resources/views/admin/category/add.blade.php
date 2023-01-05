@@ -67,7 +67,7 @@
                                 <h5 class="font-weight-bolder">Media</h5>
                                 <div class="multisteps-form__content">
                                     <div class="col-md-12">
-                                        <input type="file" name="image" class="form-control-file">
+                                        <input type="file" name="image" class="form-control-file" required>
                                         <hr>
                                     </div>
                                     <div class="button-row d-flex mt-4">
